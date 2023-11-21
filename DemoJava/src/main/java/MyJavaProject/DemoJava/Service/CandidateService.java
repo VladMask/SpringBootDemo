@@ -26,4 +26,20 @@ public class CandidateService implements ICandidateService{
     public List<CandidateDto> findAll() {
         return CandidateConverter.ConverCandidates(this.candidateDao.findAll());
     }
+
+    public void create(CandidateDto entity) {
+        candidateDao.save(CandidateConverter.convertDto(entity));
+    }
+
+//    public void delete(CandidateDto entity) {
+//        candidateDao.delete(CandidateConverter.convertDto(entity));
+//    }
+
+    public void deleteById(long id) {
+        candidateDao.deleteById(id);
+    }
+
+    public void updateCandidate(long id, CandidateDto entity) {
+        candidateDao.save(CandidateConverter.convertDto(entity));
+    }
 }

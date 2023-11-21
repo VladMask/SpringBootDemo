@@ -11,4 +11,10 @@ public interface ICandidateDao extends CrudRepository<Candidate, Long> {
 
     List<Candidate> findAll();
 
+    <S extends Candidate> S save(S entity);
+
+//    void delete(Candidate entity);
+
+    void deleteById(long id);
+
 }

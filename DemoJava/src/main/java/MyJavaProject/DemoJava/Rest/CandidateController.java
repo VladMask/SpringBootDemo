@@ -1,11 +1,9 @@
 package MyJavaProject.DemoJava.Rest;
 
 import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
+import MyJavaProject.DemoJava.Entity.Dto.Converter.CandidateConverter;
 import MyJavaProject.DemoJava.Service.ICandidateService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +22,24 @@ public class CandidateController {
         return this.candidateService.findById(id);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<CandidateDto> findAll(){
         return this.candidateService.findAll();
+    }
+
+    @PostMapping
+    public void create(@RequestBody CandidateDto entity) {
+        candidateService.create(entity);
+    }
+
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable long id) {
+        candidateService.deleteById(id);
+    }
+
+    @PutMapping("/{id}")
+    public void updateCandidate(@PathVariable long id, @RequestBody CandidateDto entity) {
+        candidateService.updateCandidate(id, entity);
     }
 }
