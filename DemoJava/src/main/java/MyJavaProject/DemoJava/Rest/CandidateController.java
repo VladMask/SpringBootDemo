@@ -42,4 +42,20 @@ public class CandidateController {
     public void updateCandidate(@PathVariable long id, @RequestBody CandidateDto entity) {
         candidateService.updateCandidate(id, entity);
     }
+
+    @PatchMapping("/{id}")
+    public void softUpdateCandidate(@PathVariable long id, @RequestBody CandidateDto entity) {
+        CandidateDto dto = candidateService.findById(id);
+        if(entity.getId() != 0)
+            dto.setId(entity.getId());
+        if (entity.getAge() != 0)
+            dto.setAge(entity.getAge());
+        if (entity.getName() != null)
+            dto.setName(entity.getName());
+        if (entity.getSurname() != null)
+            dto.setSurname(entity.getSurname());
+        if (entity.getSkillsDescription() != null)
+            dto.setSkillsDescription(entity.getSkillsDescription());
+        candidateService.updateCandidate(id, dto);
+    }
 }

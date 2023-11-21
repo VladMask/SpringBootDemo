@@ -9,4 +9,8 @@ public interface IVacancyDao extends CrudRepository<Vacancy, Long> {
     Vacancy findById(long id);
 
     List<Vacancy> findAll();
+
+    <S extends Vacancy> S save(S entity);
+
+    void deleteById(long id);
 }

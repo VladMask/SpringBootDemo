@@ -2,6 +2,8 @@ package MyJavaProject.DemoJava.Service;
 
 
 import MyJavaProject.DemoJava.Dao.IVacancyDao;
+import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
+import MyJavaProject.DemoJava.Entity.Dto.Converter.CandidateConverter;
 import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
 import MyJavaProject.DemoJava.Entity.Dto.Converter.VacancyConverter;
 import lombok.Setter;
@@ -24,5 +26,17 @@ public class VacancyService implements IVacancyService {
 
     public List<VacancyDto> findAll() {
         return VacancyConverter.convertVacancies(this.vacancyDao.findAll());
+    }
+
+    public void create(VacancyDto entity) {
+        vacancyDao.save(VacancyConverter.convertDto(entity));
+    }
+
+    public void deleteById(long id) {
+        vacancyDao.deleteById(id);
+    }
+
+    public void updateVacancy(long id, VacancyDto entity) {
+        vacancyDao.save(VacancyConverter.convertDto(entity));
     }
 }
