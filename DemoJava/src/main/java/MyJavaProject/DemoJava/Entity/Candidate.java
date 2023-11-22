@@ -1,6 +1,7 @@
 package MyJavaProject.DemoJava.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,6 +31,7 @@ public class Candidate {
     private String skillsDescription;
     @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY)
     @Column(name = "recommendations")
+    @JsonManagedReference
     private List<Recommendation> recommendations;
 
     @Override

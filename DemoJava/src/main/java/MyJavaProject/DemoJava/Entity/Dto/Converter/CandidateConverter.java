@@ -14,7 +14,7 @@ public class CandidateConverter {
                 .name(source.getName())
                 .surname(source.getSurname())
                 .skillsDescription(source.getSkillsDescription())
-                //.recommendations(source.getRecommendations())
+                .recommendations(RecommendationConverter.convertRecommendations(source.getRecommendations()))
                 .build();
     }
 
@@ -26,7 +26,7 @@ public class CandidateConverter {
                 .name(source.getName())
                 .surname(source.getSurname())
                 .skillsDescription(source.getSkillsDescription())
-                //.recommendations(source.getRecommendations())
+                .recommendations(RecommendationConverter.convertDtos(source.getRecommendations()))
                 .build();
     }
 

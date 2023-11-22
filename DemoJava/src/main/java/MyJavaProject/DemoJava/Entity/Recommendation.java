@@ -1,5 +1,6 @@
 package MyJavaProject.DemoJava.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class Recommendation {
     private String recommendationText;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="candidate_id", referencedColumnName = "id")
+    @JsonBackReference
     private Candidate candidate;
 
 }
