@@ -1,8 +1,10 @@
 package MyJavaProject.DemoJava.Service;
 
 import MyJavaProject.DemoJava.Dao.ICandidateDao;
+import MyJavaProject.DemoJava.Dao.IRecommendationDao;
 import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
 import MyJavaProject.DemoJava.Entity.Dto.Converter.CandidateConverter;
+import MyJavaProject.DemoJava.Entity.Recommendation;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +15,17 @@ import java.util.List;
 
 public class CandidateService implements ICandidateService{
 
-    public CandidateService(ICandidateDao candidateDao) {
-        this.candidateDao = candidateDao;
-    }
-
-//    public CandidateService(ICandidateDao candidateDao, IRecommendationDao recommendationDao){
+//    public CandidateService(ICandidateDao candidateDao) {
 //        this.candidateDao = candidateDao;
-//        this.RecommendationDao = recommendationDao;
 //    }
 
+    public CandidateService(ICandidateDao candidateDao, IRecommendationDao recommendationDao){
+        this.candidateDao = candidateDao;
+        this.recommendationDao = recommendationDao;
+    }
+
     private final ICandidateDao candidateDao;
-//    private final IRecommendationDao RecommendationDao;
+    private final IRecommendationDao recommendationDao;
 
     public CandidateDto findById(long id) {
         return CandidateConverter.convertCandidate(this.candidateDao.findById(id));
@@ -38,10 +40,15 @@ public class CandidateService implements ICandidateService{
     }
 
     public void deleteById(long id) {
+        List<Recommendation> recommendations = candidateDao.findById(id).getRecommendations();
+        for (Recommendation r: recommendations) {
+            recommendationDao.deleteById(r.getId());
+        }
         candidateDao.deleteById(id);
     }
 
     public void updateCandidate(long id, CandidateDto entity) {
+
         candidateDao.save(CandidateConverter.convertDto(entity));
     }
 }
