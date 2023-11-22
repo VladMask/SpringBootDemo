@@ -4,13 +4,15 @@ package MyJavaProject.DemoJava.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-//@Getter
-//@Setter
-//@RequiredArgsConstructor
-//@AllArgsConstructor
-@Entity
+import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@Table(schema = "candidates")
+@Entity
+@Table(schema = "candidate")
 
 public class Candidate {
 
@@ -26,74 +28,9 @@ public class Candidate {
     private String surname;
     @Column(name = "skills_description")
     private String skillsDescription;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getSkillsDescription() {
-        return skillsDescription;
-    }
-
-    public void setSkillsDescription(String skillsDescription) {
-        this.skillsDescription = skillsDescription;
-    }
-
-
-    public Candidate(){}
-
-    public Candidate(long id) {
-        this.id = id;
-    }
-
-    public Candidate(long id, int age) {
-        this(id);
-        this.age = age;
-    }
-
-    public Candidate(long id, int age, String name) {
-        this(id,age);
-        this.name = name;
-    }
-
-    public Candidate(long id, int age, String name, String surname){
-        this(id, age, name);
-        this.surname = surname;
-    }
-
-    public Candidate(long id, int age, String name, String surname, String skillsDescription)
-    {
-        this(id, age, name, surname);
-        this.skillsDescription = skillsDescription;
-    }
+    @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY)
+    @Column(name = "recommendations")
+    private List<Recommendation> recommendations;
 
     @Override
     public String toString()

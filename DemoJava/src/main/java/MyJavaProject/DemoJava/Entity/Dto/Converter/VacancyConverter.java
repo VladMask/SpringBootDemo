@@ -12,7 +12,8 @@ public class VacancyConverter {
         return VacancyDto.builder()
                 .id(source.getId())
                 .companyName(source.getCompanyName())
-                .description(source.getDescription()).build();
+                .description(source.getDescription())
+                .build();
     }
 
     public static Vacancy convertDto(VacancyDto source)

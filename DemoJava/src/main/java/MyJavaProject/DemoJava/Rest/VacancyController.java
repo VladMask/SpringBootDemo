@@ -31,7 +31,6 @@ public class VacancyController {
         vacancyService.create(entity);
     }
 
-
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable long id) {
         vacancyService.deleteById(id);

@@ -13,7 +13,9 @@ public class CandidateConverter {
                 .age(source.getAge())
                 .name(source.getName())
                 .surname(source.getSurname())
-                .skillsDescription(source.getSkillsDescription()).build();
+                .skillsDescription(source.getSkillsDescription())
+                //.recommendations(source.getRecommendations())
+                .build();
     }
 
     public static Candidate convertDto(CandidateDto source)
@@ -23,7 +25,9 @@ public class CandidateConverter {
                 .age(source.getAge())
                 .name(source.getName())
                 .surname(source.getSurname())
-                .skillsDescription(source.getSkillsDescription()).build();
+                .skillsDescription(source.getSkillsDescription())
+                //.recommendations(source.getRecommendations())
+                .build();
     }
 
     public static List<CandidateDto> ConverCandidates(List<Candidate> source)

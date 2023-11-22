@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(schema = "vacancies")
+@Table(schema = "vacancy")
 
 
 public class Vacancy {

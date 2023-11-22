@@ -1,7 +1,10 @@
 package MyJavaProject.DemoJava.Entity.Dto;
 
+import MyJavaProject.DemoJava.Entity.Recommendation;
 import jakarta.persistence.Column;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -12,4 +15,5 @@ public class CandidateDto {
     private String name;
     private String surname;
     private String skillsDescription;
+    private List<RecommendationDto> recommendations;
 }
