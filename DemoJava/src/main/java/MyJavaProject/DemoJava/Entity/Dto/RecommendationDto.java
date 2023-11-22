@@ -1,6 +1,7 @@
 package MyJavaProject.DemoJava.Entity.Dto;
 
 import MyJavaProject.DemoJava.Entity.Candidate;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class RecommendationDto {
     private String personSurname;
     private String personCompany;
     private String recommendationText;
+    @JsonIgnore
     private Candidate candidate;
 
 }
