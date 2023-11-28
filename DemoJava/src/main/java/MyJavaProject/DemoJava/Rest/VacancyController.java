@@ -1,8 +1,8 @@
 package MyJavaProject.DemoJava.Rest;
 
-import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
 import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
 import MyJavaProject.DemoJava.Service.IVacancyService;
+import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,23 +26,27 @@ public class VacancyController {
         return this.vacancyService.findAll();
     }
 
+    @Transactional
     @PostMapping
     public void create(@RequestBody VacancyDto entity) {
         vacancyService.create(entity);
     }
 
+    @Transactional
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable long id) {
         vacancyService.deleteById(id);
     }
 
+    @Transactional
     @PutMapping("/{id}")
-    public void updateCandidate(@PathVariable long id, @RequestBody VacancyDto entity) {
+    public void updateVacancy(@PathVariable long id, @RequestBody VacancyDto entity) {
         vacancyService.updateVacancy(id, entity);
     }
 
+    @Transactional
     @PatchMapping("/{id}")
-    public void softUpdateCandidate(@PathVariable long id, @RequestBody VacancyDto entity) {
+    public void softUpdateVacancy(@PathVariable long id, @RequestBody VacancyDto entity) {
         VacancyDto dto = vacancyService.findById(id);
         if(entity.getId() != 0)
             dto.setId(entity.getId());

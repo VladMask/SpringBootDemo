@@ -4,9 +4,13 @@ package MyJavaProject.DemoJava.Service;
 import MyJavaProject.DemoJava.Dao.IRecommendationDao;
 import MyJavaProject.DemoJava.Entity.Dto.Converter.RecommendationConverter;
 import MyJavaProject.DemoJava.Entity.Dto.RecommendationDto;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@Setter
 public class RecommendationService implements IRecommendationService{
     public RecommendationService(IRecommendationDao RecommendationDao){
         this.RecommendationDao = RecommendationDao;

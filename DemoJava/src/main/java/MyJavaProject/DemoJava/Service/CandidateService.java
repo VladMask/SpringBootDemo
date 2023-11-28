@@ -15,10 +15,6 @@ import java.util.List;
 
 public class CandidateService implements ICandidateService{
 
-//    public CandidateService(ICandidateDao candidateDao) {
-//        this.candidateDao = candidateDao;
-//    }
-
     public CandidateService(ICandidateDao candidateDao, IRecommendationDao recommendationDao){
         this.candidateDao = candidateDao;
         this.recommendationDao = recommendationDao;
