@@ -1,9 +1,11 @@
-package MyJavaProject.DemoJava.Service;
+package MyJavaProject.DemoJava.Service.Impl;
 
 
 import MyJavaProject.DemoJava.Dao.IRecommendationDao;
-import MyJavaProject.DemoJava.Entity.Dto.Converter.RecommendationConverter;
-import MyJavaProject.DemoJava.Entity.Dto.RecommendationDto;
+import MyJavaProject.DemoJava.Dto.Converter.RecommendationConverter;
+import MyJavaProject.DemoJava.Dto.RecommendationDto;
+import MyJavaProject.DemoJava.Service.IRecommendationService;
+import jakarta.transaction.Transactional;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,7 @@ import java.util.List;
 
 @Service
 @Setter
-public class RecommendationService implements IRecommendationService{
+public class RecommendationService implements IRecommendationService {
     public RecommendationService(IRecommendationDao RecommendationDao){
         this.RecommendationDao = RecommendationDao;
     }
@@ -26,6 +28,7 @@ public class RecommendationService implements IRecommendationService{
         return RecommendationConverter.convertRecommendations(this.RecommendationDao.findAll());
     }
 
+    @Transactional
     public void create(RecommendationDto entity) {
         RecommendationDao.save(RecommendationConverter.convertDto(entity));
     }

@@ -1,7 +1,5 @@
-package MyJavaProject.DemoJava.Entity.Dto;
+package MyJavaProject.DemoJava.Dto;
 
-import MyJavaProject.DemoJava.Entity.Recommendation;
-import jakarta.persistence.Column;
 import lombok.*;
 
 import java.util.List;

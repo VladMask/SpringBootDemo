@@ -1,6 +1,6 @@
-package MyJavaProject.DemoJava.Entity.Dto.Converter;
+package MyJavaProject.DemoJava.Dto.Converter;
 
-import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
+import MyJavaProject.DemoJava.Dto.VacancyDto;
 import MyJavaProject.DemoJava.Entity.Vacancy;
 
 import java.util.List;

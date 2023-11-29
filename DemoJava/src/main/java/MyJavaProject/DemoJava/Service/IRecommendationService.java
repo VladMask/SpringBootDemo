@@ -1,7 +1,7 @@
 package MyJavaProject.DemoJava.Service;
 
 
-import MyJavaProject.DemoJava.Entity.Dto.RecommendationDto;
+import MyJavaProject.DemoJava.Dto.RecommendationDto;
 
 import java.util.List;
 

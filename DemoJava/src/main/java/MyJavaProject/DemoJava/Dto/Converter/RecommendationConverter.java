@@ -1,9 +1,7 @@
-package MyJavaProject.DemoJava.Entity.Dto.Converter;
+package MyJavaProject.DemoJava.Dto.Converter;
 
-import MyJavaProject.DemoJava.Entity.Dto.RecommendationDto;
-import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
+import MyJavaProject.DemoJava.Dto.RecommendationDto;
 import MyJavaProject.DemoJava.Entity.Recommendation;
-import MyJavaProject.DemoJava.Entity.Vacancy;
 
 import java.util.List;
 

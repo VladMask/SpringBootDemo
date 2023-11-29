@@ -1,6 +1,6 @@
-package MyJavaProject.DemoJava.Entity.Dto.Converter;
+package MyJavaProject.DemoJava.Dto.Converter;
 
-import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
+import MyJavaProject.DemoJava.Dto.CandidateDto;
 import MyJavaProject.DemoJava.Entity.Candidate;
 
 import java.util.List;

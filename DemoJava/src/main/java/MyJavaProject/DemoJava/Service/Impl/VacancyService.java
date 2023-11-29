@@ -1,11 +1,11 @@
-package MyJavaProject.DemoJava.Service;
+package MyJavaProject.DemoJava.Service.Impl;
 
 
 import MyJavaProject.DemoJava.Dao.IVacancyDao;
-import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
-import MyJavaProject.DemoJava.Entity.Dto.Converter.CandidateConverter;
-import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
-import MyJavaProject.DemoJava.Entity.Dto.Converter.VacancyConverter;
+import MyJavaProject.DemoJava.Dto.VacancyDto;
+import MyJavaProject.DemoJava.Dto.Converter.VacancyConverter;
+import MyJavaProject.DemoJava.Service.IVacancyService;
+import jakarta.transaction.Transactional;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +28,7 @@ public class VacancyService implements IVacancyService {
         return VacancyConverter.convertVacancies(this.vacancyDao.findAll());
     }
 
+    @Transactional
     public void create(VacancyDto entity) {
         vacancyDao.save(VacancyConverter.convertDto(entity));
     }

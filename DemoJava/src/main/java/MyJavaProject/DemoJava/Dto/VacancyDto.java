@@ -1,9 +1,7 @@
-package MyJavaProject.DemoJava.Entity.Dto;
+package MyJavaProject.DemoJava.Dto;
 
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 

@@ -1,8 +1,7 @@
-package MyJavaProject.DemoJava.Entity.Dto;
+package MyJavaProject.DemoJava.Dto;
 
 import MyJavaProject.DemoJava.Entity.Candidate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import lombok.*;
 
 @Getter

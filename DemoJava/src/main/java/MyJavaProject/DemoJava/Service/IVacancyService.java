@@ -1,7 +1,6 @@
 package MyJavaProject.DemoJava.Service;
 
-import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
-import MyJavaProject.DemoJava.Entity.Dto.VacancyDto;
+import MyJavaProject.DemoJava.Dto.VacancyDto;
 
 import java.util.List;
 
