@@ -5,6 +5,7 @@ import MyJavaProject.DemoJava.Dao.IRecommendationDao;
 import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
 import MyJavaProject.DemoJava.Entity.Dto.Converter.CandidateConverter;
 import MyJavaProject.DemoJava.Entity.Recommendation;
+import jakarta.transaction.Transactional;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
 
@@ -31,15 +32,12 @@ public class CandidateService implements ICandidateService{
         return CandidateConverter.ConverCandidates(this.candidateDao.findAll());
     }
 
+    @Transactional
     public void create(CandidateDto entity) {
         candidateDao.save(CandidateConverter.convertDto(entity));
     }
 
     public void deleteById(long id) {
-        List<Recommendation> recommendations = candidateDao.findById(id).getRecommendations();
-        for (Recommendation r: recommendations) {
-            recommendationDao.deleteById(r.getId());
-        }
         candidateDao.deleteById(id);
     }
 

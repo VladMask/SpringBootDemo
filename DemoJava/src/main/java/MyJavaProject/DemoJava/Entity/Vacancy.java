@@ -10,8 +10,7 @@ import lombok.*;
 @Builder
 @Entity
 @Table(schema = "vacancy")
-
-
+@ToString
 public class Vacancy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,14 +20,4 @@ public class Vacancy {
     private String companyName;
     @Column(name = "description")
     private String description;
-
-    @Override
-    public String toString()
-    {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("Company: ").append(this.companyName).
-                append("\nDescription: ").append(this.description);
-        return stringBuilder.toString();
-    }
-
 }

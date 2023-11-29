@@ -14,7 +14,7 @@ import java.util.List;
 @Builder
 @Entity
 @Table(schema = "candidate")
-
+@ToString
 public class Candidate {
 
     @Id
@@ -29,17 +29,7 @@ public class Candidate {
     private String surname;
     @Column(name = "skills_description")
     private String skillsDescription;
-    @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "candidate", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @Column(name = "recommendations")
-    @JsonManagedReference
     private List<Recommendation> recommendations;
-
-    @Override
-    public String toString()
-    {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Candidate: ").append(this.name).append(" ").append(this.surname).
-                append("\nAge: ").append(this.age).append("\nSkills: ").append(this.skillsDescription);
-        return sb.toString();
-    }
 }

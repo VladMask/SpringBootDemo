@@ -11,7 +11,6 @@ import lombok.*;
 @Builder
 @Entity
 public class Recommendation {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -26,7 +25,5 @@ public class Recommendation {
     private String recommendationText;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="candidate_id", referencedColumnName = "id")
-    @JsonBackReference
     private Candidate candidate;
-
 }
