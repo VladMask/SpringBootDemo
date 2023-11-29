@@ -2,12 +2,15 @@ package MyJavaProject.DemoJava.Rest;
 
 import MyJavaProject.DemoJava.Entity.Dto.CandidateDto;
 import MyJavaProject.DemoJava.Service.ICandidateService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@Tag(name = "Candidate", description = "The Candidate API")
 @RequestMapping("/candidates")
 
 public class CandidateController {
@@ -17,36 +20,43 @@ public class CandidateController {
         this.candidateService = candidateService;
     }
 
+
+    @Operation(summary = "Finds Candidate by id")
     @GetMapping("/{id}")
     public CandidateDto findById(@PathVariable long id){
         return this.candidateService.findById(id);
     }
 
+
+    @Operation(summary = "Finds all Candidates")
     @GetMapping
     public List<CandidateDto> findAll(){
         return this.candidateService.findAll();
     }
 
     @Transactional
+    @Operation(summary = "Creates Candidate")
     @PostMapping
     public void create(@RequestBody CandidateDto entity) {
         candidateService.create(entity);
     }
 
     @Transactional
-
+    @Operation(summary = "Deletes Candidate by id")
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable long id) {
         candidateService.deleteById(id);
     }
 
     @Transactional
+    @Operation(summary = "Updates Candidate by id")
     @PutMapping("/{id}")
     public void updateCandidate(@PathVariable long id, @RequestBody CandidateDto entity) {
         candidateService.updateCandidate(id, entity);
     }
 
     @Transactional
+    @Operation(summary = "Updates Candidate by id")
     @PatchMapping("/{id}")
     public void softUpdateCandidate(@PathVariable long id, @RequestBody CandidateDto entity) {
         CandidateDto dto = candidateService.findById(id);

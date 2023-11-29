@@ -1,6 +1,5 @@
 package MyJavaProject.DemoJava;
 
-import MyJavaProject.DemoJava.Entity.Vacancy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
